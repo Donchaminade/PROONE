@@ -1,112 +1,144 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ma Galerie de Films</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Error 500</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+    }
+    .container {
+      padding: 40px;
+      text-align: center;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #555;
+      font-weight: 600;
+    }
+    p {
+      font-size: 1.1em;
+      color: #666;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+    }
+    #details-link {
+        color: #007bff;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+    #details-container {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        text-align: left;
+        font-family: 'Courier New', monospace;
+        font-size: 0.8em;
+        color: #444;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    .captcha-box {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .captcha-box h2 {
+        font-size: 1.2em;
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        color: #d9534f;
+    }
+    #captcha-img {
+        background: #eee;
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        user-select: none;
+    }
+    #captcha-input {
+        margin-top: 15px;
+        padding: 10px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div class="logo">
-      <img src="images/lo.png" alt="Logo">
-      <span><strong>MediaVerse Streaming</strong></span>
+  <div class="container">
+    <h1>500 Internal Server Error</h1>
+    <hr>
+    <p>An error occurred and your request was flagged as potentially automated.</p>
+    <p><span id="details-link">[+] Show Details</span></p>
+    
+    <div id="details-container">
+java.lang.NullPointerException: Cannot invoke "com.example.project.MyService.getSomething()" because "this.service" is null
+    at com.example.project.MyController.handleRequest(MyController.java:42)
+    at sun.reflect.GeneratedMethodAccessor123.invoke(Unknown Source)
+    ... 42 more
     </div>
-    <div class="nav-links">
-      <a href="#">Accueil</a>
-      <a href="#">Catégories</a>
-      <a href="#">Contact</a>
+
+    <div class="captcha-box">
+      <h2>Please verify you are human</h2>
+      <svg id="captcha-img" width="150" height="50">
+        <defs>
+            <filter id="distort">
+                <feTurbulence type="fractalNoise" baseFrequency="0.1 0.1" numOctaves="1" result="warp"/>
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="5" in="SourceGraphic" in2="warp" />
+            </filter>
+        </defs>
+        <text x="10" y="35" font-family="monospace" font-size="30" fill="#555" filter="url(#distort)">kZq8WpX</text>
+      </svg>
+      <br>
+      <input type="text" id="captcha-input" placeholder="Enter code">
     </div>
+
   </div>
 
-  <h1>Films disponibles</h1>
-
-  <!-- BARRE DE RECHERCHE -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Rechercher un film...">
-  </div>
-
-  <!-- CONTENEUR DES FILMS -->
-  <div class="films-container">
-    <div class="film">
-      <img src="images/cc.webp" alt="Film 1">
-      <div class="film-title">Les Chambres Rouge</div>
-      <a href="streaming.html?film=les_chambres_rouge" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/f.webp" alt="Film 2">
-      <div class="film-title">Furiosa</div>
-      <a href="streaming.html?film=furiosa" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/hi.webp" alt="Film 3">
-      <div class="film-title">L'histoire de Souleman</div>
-      <a href="streaming.html?film=souleman" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/si.webp" alt="Film 4">
-      <div class="film-title">Planète des Singes</div>
-      <a href="streaming.html?film=planete_des_singes" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/la.jpg" alt="Film 5">
-      <div class="film-title">Land Of Bad</div>
-      <a href="streaming.html?film=land_of_bad" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/us.webp" alt="Film 6">
-      <div class="film-title">Us</div>
-      <a href="streaming.html?film=us" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/wak.jpeg" alt="Film 7">
-      <div class="film-title">Wakanda</div>
-      <a href="streaming.html?film=wakanda" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/babylon.webp" alt="Film 8">
-      <div class="film-title">Babylon</div>
-      <a href="streaming.html?film=babylon" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/bad_boys_ride_or_die.webp" alt="Film 9">
-      <div class="film-title">Bad Boys</div>
-      <a href="streaming.html?film=bad_boys" class="watch-btn">Regarder</a>
-    </div>
-
-    <div class="film">
-      <img src="images/god.jpg" alt="Film 10">
-      <div class="film-title">Seigneur Des Anneaux</div>
-      <a href="streaming.html?film=seigneur_des_anneaux" class="watch-btn">Regarder</a>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Live-Hero-Streaming. Tous droits réservés.</p>
-    <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
-  </footer>
-
-  <!-- SCRIPT DE RECHERCHE -->
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const films = document.querySelectorAll('.film');
+    // --- Logic for details dropdown ---
+    const detailsLink = document.getElementById('details-link');
+    const detailsContainer = document.getElementById('details-container');
 
-    searchInput.addEventListener('input', function () {
-      const query = this.value.toLowerCase();
-      films.forEach(film => {
-        const title = film.querySelector('.film-title').textContent.toLowerCase();
-        film.style.display = title.includes(query) ? 'block' : 'none';
-      });
+    detailsLink.addEventListener('click', () => {
+        const isHidden = detailsContainer.style.display === 'none';
+        detailsContainer.style.display = isHidden ? 'block' : 'none';
+        detailsLink.textContent = isHidden ? '[-] Hide Details' : '[+] Show Details';
+    });
+
+    // --- Logic for CAPTCHA trigger ---
+    const captchaInput = document.getElementById('captcha-input');
+
+    captchaInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        if (captchaInput.value === "1234") {
+          window.location.href = "hub.html";
+        } else {
+          captchaInput.style.border = '1px solid #d9534f';
+          setTimeout(() => {
+            captchaInput.style.border = '1px solid #ccc';
+          }, 1000);
+          captchaInput.value = '';
+        }
+      }
     });
   </script>
 
